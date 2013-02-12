@@ -13,7 +13,7 @@ Bundle 'gmarik/vundle'
 "------------------
 Bundle 'Shougo/neocomplcache'
 Bundle 'garbas/vim-snipmate'
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 Bundle 'honza/snipmate-snippets'
 Bundle 'mattn/zencoding-vim'
 Bundle 'Raimondi/delimitMate'
@@ -59,17 +59,17 @@ Bundle 'nvie/vim-togglemouse'
 " Syntax/Indent for language enhancement
 "----------------------------------------
 "------- web backend ---------
-Bundle '2072/PHP-Indenting-for-VIm'
+"Bundle '2072/PHP-Indenting-for-VIm'
 "Bundle 'tpope/vim-rails'
-Bundle 'beyondwords/vim-jinja2'
+"Bundle 'beyondwords/vim-jinja2'
 "Bundle 'digitaltoad/vim-jade'
 
 "------- web frontend ----------
 Bundle 'othree/html5.vim'
 " Bundle 'tpope/vim-haml'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'nono/jquery.vim'
+"Bundle 'pangloss/vim-javascript'
+"Bundle 'kchmck/vim-coffee-script'
+"Bundle 'nono/jquery.vim'
 " Bundle 'groenewege/vim-less'
 " Bundle 'wavded/vim-stylus'
 " Bundle 'nono/vim-handlebars'

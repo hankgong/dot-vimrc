@@ -14,7 +14,7 @@ syntax on
 "--------
 " color scheme
 set background=dark
-color vividchalk
+"color vividchalk
 
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
@@ -151,7 +151,7 @@ let NERDTreeWinPos = "right"
 
 " nerdcommenter
 let NERDSpaceDelims=1
-" nmap <D-/> :NERDComToggleComment<cr>
+nmap <C-/> :NERDComToggleComment<cr>
 let NERDCompactSexyComs=1
 
 " ZenCoding
@@ -204,10 +204,10 @@ nnoremap <leader>v V`]
 " Useful Functions
 "------------------
 " easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
@@ -254,3 +254,118 @@ if has("gui_running")
     map <D-9> 9gt
     map <D-0> :tablast<CR>
 endif
+
+
+" Hank's configuration
+"turn off backup
+set nobackup
+set nowb
+set noswapfile
+
+"window switch operation
+nnoremap <A-w> <C-w>
+inoremap <A-w> <C-\><C-O><C-w>
+vnoremap <A-w> <C-w>
+
+" delete current line
+nnoremap <silent> <C-d> dd
+inoremap <silent> <C-d> <C-O>dd
+vnoremap <silent> <C-d> dd
+
+"map end of line, beginning of line
+nnoremap <silent> <C-j> 0
+inoremap <silent> <C-j> <C-O>0
+vnoremap <silent> <C-j> 0
+
+nnoremap <silent> <C-l> $
+inoremap <silent> <C-l> <C-\><C-O>$
+vnoremap <silent> <C-l> $
+
+"search use ack-grep
+nnoremap <f7> :Ack<SPACE>
+inoremap <f7> <C-O>:Ack<SPACE>
+vnoremap <f7> <C-C>:Ack<SPACE>
+
+" Change the leader key
+" let mapleader = ","
+nnoremap ; :
+inoremap jj <ESC>
+cnoremap jj <ESC>
+
+nnoremap <leader><space> :noh<CR>
+
+"enable the alt key mapping in normal terminal found this at 
+"http://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim"
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=50
+
+"Enable windows copy/cut/paste and selection
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S>		:update<CR>
+vnoremap <C-S>		<C-C>:update<CR>
+inoremap <C-S>		<C-O>:update<CR>
+
+"CTRL-W is close current buffer
+noremap <C-w>		:bd<CR>
+vnoremap <C-w>		<C-C>:bd<CR>
+inoremap <C-w>		<C-O>:bd<CR>
+
+"Ctrl-q to quite vim
+noremap <A-q>		:q!<CR>
+vnoremap <A-q>		<C-C>:q!<CR>
+inoremap <A-q>		<C-O>:q!<CR>
+
+"CTRL-Z is Undo; not in cmdline though
+noremap <C-Z> u
+inoremap <C-Z> <C-O>u
+
+"CTRL-Y is Redo (although not repeat); not in cmdline though
+noremap <C-Y> <C-R>
+inoremap <C-Y> <C-O><C-R>
+
+"CTRL-V and SHIFT-Insert are Paste
+noremap <C-V>		"+gP
+inoremap <C-V>		<C-O>"+gp
+vnoremap <C-V>		"+gp
+
+"CTRL-C and SHIFT-Insert are Paste
+noremap <C-C>		"+y
+inoremap <C-C>		<C-O>"+y
+vnoremap <C-C>		"+y
+
+"configure the ctrlp plugin
+let g:ctrlp_map = '<f8>'
+"Set Alt-R as open recent edited files
+nnoremap <silent> <A-r> :CtrlPMRU<CR>
+inoremap <silent> <A-r> <C-O>:CtrlPMRU<CR>
+vnoremap <silent> <A-r> <C-C>:CtrlPMRU<CR>
+
+"configure the tagbar plugin 
+let g:tarbar_singleclick = 1
+
+"Set Alt-D as showing all opened buffers
+nnoremap <silent> <A-d> :CtrlPBuffer<CR>
+inoremap <silent> <A-d> <C-O>:CtrlPBuffer<CR>
+vnoremap <silent> <A-d> <C-C>:CtrlPBuffer<CR>
+
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+"nnoremap <tab> %
+"vnoremap <tab> %
+
+"compile current project
+nnoremap <silent> <C-r> :cd ../build<CR>:make<CR> 
+inoremap <silent> <C-r> <ESC>:cd ../build<CR>:make<CR>a
+vnoremap <silent> <C-r> <C-C>:cd ../build<CR>:make<CR>
+
+"Error handling
+nnoremap <silent> <A-down> :cn<CR>
+inoremap <silent> <A-down> <C-O>:cn<CR>
+nnoremap <silent> <A-up> :cp<CR>
+inoremap <silent> <A-up> <C-O>:cp<CR>
+
