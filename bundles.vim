@@ -15,11 +15,12 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'garbas/vim-snipmate'
 "Bundle 'ervandew/supertab'
 Bundle 'honza/snipmate-snippets'
-Bundle 'mattn/zencoding-vim'
+"Bundle 'mattn/zencoding-vim'
 Bundle 'Raimondi/delimitMate'
 "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
+Bundle 'vim-scripts/c.vim'
 
 "-----------------
 " Fast navigation
@@ -46,7 +47,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 
 "-------------
@@ -65,7 +66,7 @@ Bundle 'nvie/vim-togglemouse'
 "Bundle 'digitaltoad/vim-jade'
 
 "------- web frontend ----------
-Bundle 'othree/html5.vim'
+"Bundle 'othree/html5.vim'
 " Bundle 'tpope/vim-haml'
 "Bundle 'pangloss/vim-javascript'
 "Bundle 'kchmck/vim-coffee-script'
@@ -82,7 +83,7 @@ Bundle 'tpope/vim-markdown'
 " Bundle 'tpope/vim-endwise'
 
 "------- FPs ------
-Bundle 'kien/rainbow_parentheses.vim'
+"Bundle 'kien/rainbow_parentheses.vim'
 " Bundle 'wlangstroth/vim-racket'
 " Bundle 'vim-scripts/VimClojure'
 " Bundle 'rosstimson/scala-vim-support'

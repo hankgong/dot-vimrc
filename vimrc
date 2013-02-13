@@ -155,7 +155,7 @@ nmap <C-/> :NERDComToggleComment<cr>
 let NERDCompactSexyComs=1
 
 " ZenCoding
-let g:user_zen_expandabbr_key='<C-j>'
+"let g:user_zen_expandabbr_key='<C-j>'
 
 " powerline
 "let g:Powerline_symbols = 'fancy'
@@ -163,17 +163,40 @@ let g:user_zen_expandabbr_key='<C-j>'
 " NeoComplCache
 let g:neocomplcache_enable_at_startup=1
 let g:neoComplcache_disableautocomplete=1
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 set completeopt-=preview
 
+let g:neocomplcache_snippets_dir=$VIMFILES."/snippets"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
+inoremap <expr><C-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
+
 imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
 imap <C-l> <Plug>(neocomplcache_snippets_force_jump)
 smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
+
+" SuperTab like snippets behavior.
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+" inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
+inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+" <TAB>: completion. THIS HAS NO USE WHEN WITH SNIPMATE
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <SPACE>: completion.
+inoremap <expr><space>  pumvisible() ? neocomplcache#close_popup() . "\<SPACE>" : "\<SPACE>"
+
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#close_popup()."\<C-h>"
+
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -262,6 +285,13 @@ set nobackup
 set nowb
 set noswapfile
 
+"remap HJKL to make it more intuitively
+noremap i k
+noremap k j
+noremap j h
+noremap h i
+noremap H I
+
 "window switch operation
 nnoremap <A-w> <C-w>
 inoremap <A-w> <C-\><C-O><C-w>
@@ -273,13 +303,13 @@ inoremap <silent> <C-d> <C-O>dd
 vnoremap <silent> <C-d> dd
 
 "map end of line, beginning of line
-nnoremap <silent> <C-j> 0
-inoremap <silent> <C-j> <C-O>0
-vnoremap <silent> <C-j> 0
+nnoremap <silent> <C-l> 0
+inoremap <silent> <C-l> <C-O>0
+vnoremap <silent> <C-l> 0
 
-nnoremap <silent> <C-l> $
-inoremap <silent> <C-l> <C-\><C-O>$
-vnoremap <silent> <C-l> $
+nnoremap <silent> <A-l> $
+inoremap <silent> <A-l> <C-\><C-O>$
+vnoremap <silent> <A-l> $
 
 "search use ack-grep
 nnoremap <f7> :Ack<SPACE>
@@ -359,9 +389,9 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 "vnoremap <tab> %
 
 "compile current project
-nnoremap <silent> <C-r> :cd ../build<CR>:make<CR> 
-inoremap <silent> <C-r> <ESC>:cd ../build<CR>:make<CR>a
-vnoremap <silent> <C-r> <C-C>:cd ../build<CR>:make<CR>
+nnoremap <C-r> :cd ../build<CR>:make<CR> 
+inoremap <C-r> <ESC>:cd ../build<CR>:make<CR>a
+vnoremap <C-r> <C-C>:cd ../build<CR>:make<CR>
 
 "Error handling
 nnoremap <silent> <A-down> :cn<CR>
