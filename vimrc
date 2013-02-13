@@ -298,18 +298,18 @@ inoremap <A-w> <C-\><C-O><C-w>
 vnoremap <A-w> <C-w>
 
 " delete current line
-nnoremap <silent> <C-d> dd
-inoremap <silent> <C-d> <C-O>dd
-vnoremap <silent> <C-d> dd
+nnoremap <silent> <C-l> dd
+inoremap <silent> <C-l> <C-O>dd
+vnoremap <silent> <C-l> dd
 
 "map end of line, beginning of line
-nnoremap <silent> <C-l> 0
-inoremap <silent> <C-l> <C-O>0
-vnoremap <silent> <C-l> 0
+nnoremap <silent> <A-l> 0
+inoremap <silent> <A-l> <C-O>0
+vnoremap <silent> <A-l> 0
 
-nnoremap <silent> <A-l> $
-inoremap <silent> <A-l> <C-\><C-O>$
-vnoremap <silent> <A-l> $
+nnoremap <silent> <C-l> $
+inoremap <silent> <C-l> <C-\><C-O>$
+vnoremap <silent> <C-l> $
 
 "search use ack-grep
 nnoremap <f7> :Ack<SPACE>
